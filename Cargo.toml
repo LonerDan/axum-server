@@ -15,7 +15,7 @@ rust-version = "1.66"
 [features]
 default = []
 tls-rustls = ["tls-rustls-no-provider", "rustls/aws-lc-rs"]
-tls-rustls-no-provider = ["arc-swap", "rustls", "rustls-pemfile", "tokio/fs", "tokio/time", "tokio-rustls", "rustls-pki-types", "dep:pin-project-lite"]
+tls-rustls-no-provider = ["arc-swap", "rustls", "rustls/std", "rustls-pemfile", "tokio/fs", "tokio/time", "tokio-rustls", "rustls-pki-types", "dep:pin-project-lite"]
 tls-openssl = ["arc-swap", "openssl", "tokio-openssl", "dep:pin-project-lite"]
 
 [dependencies]
@@ -30,7 +30,7 @@ hyper-util = { version = "0.1.2", features = ["server-auto", "service", "tokio"]
 # optional dependencies
 ## rustls
 arc-swap = { version = "1", optional = true }
-rustls = { version = "0.23", default-features = false, optional = true }
+rustls = { git = "https://github.com/rustls/rustls.git", rev = "271d510e4e31cb85c3d28eb4f117a7660b6a0fb6", default-features = false, optional = true }
 rustls-pki-types = { version = "1.7", optional = true }
 rustls-pemfile = { version = "2.1", optional = true }
 tokio-rustls = { git = "https://github.com/LonerDan/tokio-rustls", rev = "d78ea0e6d9dd3e40cd9047cd63f8cc8f0dead193", default-features = false, optional = true }
